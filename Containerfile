@@ -7,6 +7,14 @@ ARG RECIPE
 # copy over configuration files
 COPY etc /etc
 # COPY usr /usr
+RUN cd /etc/yum.repos.d/ && curl -LO https://copr.fedorainfracloud.org/coprs/ipedrosa/passkey-auth/repo/fedora-38/ipedrosa-passkey-auth-fedora-38.repo && \
+    rpm-ostree override replace --experimental --freeze \
+    --from repo="copr:copr.fedorainfracloud.org:ipedrosa:passkey-auth" \
+    sssd-idp sssd-passkey sssd-common sssd-krb5 libsss_certmap \
+    libsss_idmap libsss_sudo sssd-client libsss_nss_idmap \
+    sssd-krb5-common sssd-nfs-idmap sssd-proxy sssd-ad \
+    sssd-common-pac sssd-ldap sssd sssd-ipa sssd-kcm libipa_hbac && \
+    rpm-ostree install freeipa-client
 
 COPY ${RECIPE} /tmp/ublue-recipe.yml
 
