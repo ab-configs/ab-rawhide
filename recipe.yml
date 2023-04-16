@@ -10,7 +10,7 @@ base-container: ghcr.io/ublue-os/silverblue-main
 # If you use `latest`, you will be automatically updated
 # to the next major version assuming the image you're using as your base container
 # builds with the tag (all uBlue images do this). 
-fedora-version: 39
+fedora-version: 38
 
 # This description will be visible in the container metadata
 description: Rawhide image for abbra desktop
