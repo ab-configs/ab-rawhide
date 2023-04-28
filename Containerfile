@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=38
+ARG FEDORA_MAJOR_VERSION=rawhide
 ARG BASE_CONTAINER_URL=ghcr.io/ab-configs/silverblue-main
 
 FROM ${BASE_CONTAINER_URL}:${FEDORA_MAJOR_VERSION}
@@ -7,7 +7,7 @@ ARG RECIPE
 # copy over configuration files
 COPY etc /etc
 # COPY usr /usr
-RUN cd /etc/yum.repos.d/ && curl -LO https://copr.fedorainfracloud.org/coprs/ipedrosa/passkey-auth/repo/fedora-38/ipedrosa-passkey-auth-fedora-38.repo && \
+RUN cd /etc/yum.repos.d/ && curl -LO https://copr.fedorainfracloud.org/coprs/ipedrosa/passkey-auth/repo/fedora-${FEDORA_MAJOR_VERSION}/ipedrosa-passkey-auth-fedora-${FEDORA_MAJOR_VERSION}.repo && \
     rpm-ostree override replace --experimental --freeze \
     --from repo="copr:copr.fedorainfracloud.org:ipedrosa:passkey-auth" \
     sssd-idp sssd-passkey sssd-common sssd-krb5 libsss_certmap \
