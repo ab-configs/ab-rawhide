@@ -7,9 +7,9 @@ ARG RECIPE
 # copy over configuration files
 COPY etc /etc
 # COPY usr /usr
-RUN cd /etc/yum.repos.d/ && curl -LO https://copr.fedorainfracloud.org/coprs/ipedrosa/passkey-auth/repo/fedora-${FEDORA_MAJOR_VERSION}/ipedrosa-passkey-auth-fedora-${FEDORA_MAJOR_VERSION}.repo && \
+RUN cd /etc/yum.repos.d/ && curl -LO https://copr.fedorainfracloud.org/coprs/abbra/freeipa-dal-test/repo/fedora-${FEDORA_MAJOR_VERSION}/abbra-freeipa-dal-test-fedora-${FEDORA_MAJOR_VERSION}.repo && \
     rpm-ostree override replace --experimental --freeze \
-    --from repo="copr:copr.fedorainfracloud.org:ipedrosa:passkey-auth" \
+    --from repo="copr:copr.fedorainfracloud.org:abbra/freeipa-dal-test" \
     sssd-idp sssd-passkey sssd-common sssd-krb5 libsss_certmap \
     libsss_idmap libsss_sudo sssd-client libsss_nss_idmap \
     sssd-krb5-common sssd-nfs-idmap sssd-proxy sssd-ad \
