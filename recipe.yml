@@ -19,6 +19,8 @@ description: Rawhide image for abbra desktop
 # using rpm-ostree and will be preinstalled in the final image
 rpms:
   - python3-pip # needed for yafti (the first boot installer)
+  - evince
+  - powertop
 
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.
