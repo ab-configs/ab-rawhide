@@ -23,6 +23,17 @@ rpms:
   - powertop
   - fedora-packager-kerberos
   - setools-console
+  - qemu-system-x86
+  - qemu-img
+  - epson-inkjet-printer-escpr2
+  - epson-inkjet-printer-escpr
+  - foomatic
+  - foomatic-db
+  - foomatic-db-ppds
+  - sane-backends-drivers-scanners
+  - sane-backends
+  - sane
+  - xsane
 
 # These Flatpaks (from flathub) will be available for install on boot
 # this is just an example selection.
